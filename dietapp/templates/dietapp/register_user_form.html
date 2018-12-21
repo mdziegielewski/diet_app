@@ -1,0 +1,21 @@
+{% extends 'dietapp/home.html' %}
+{% load static %}
+
+
+
+
+{% block header %}
+
+{% endblock %}
+
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit" class="myButton">Zarejestruj</button>
+    </form>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

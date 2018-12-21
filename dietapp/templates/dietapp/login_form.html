@@ -1,0 +1,30 @@
+{% extends 'dietapp/home.html' %}
+{% load static %}
+
+
+
+
+{% block header %}
+
+{% endblock %}
+
+
+{% block content %}
+    <form method="post" class="login-form">
+        {% csrf_token %}
+      <div class="login_h">
+            <h1 class="login">Login</h1>
+            <form method="post">
+                {{form.as_p}}
+                <button type="submit" class="btn btn-outline-success">Zaloguj</button>
+                <a href="registration" class="btn btn-outline-success" >Zarejestruj</a>
+            </form>
+      </div>
+    </form>
+
+    <div class="underlay-photo"></div>
+    <div class="underlay-black"></div>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'dietapp/home.html' %}
+
+{% block header %}
+
+<nav class="navbar navbar-light bg-light justify-content-between">
+    <a class="btn btn-outline-success my-2 my-sm-0" href="/logout">Logout</a>
+    <p><a class="btn btn-outline-success" href="/home">Powrót na główną</a></p>
+</nav>
+{% endblock %}
+
+
+
+
+{% block content %}
+    <div class="person_details">
+    Waga: {{person_body.weight}} kg<br>
+    Wzrost: {{person_body.height}} cm<br>
+    Wiek: {{person_age}} lat<br>
+    Płeć: {{person_body.get_gender_display}}<br>
+    Obwód klatki piersiowej: {{person_body.chest_measure}} cm<br>
+    Obwód talii: {{person_body.waist_measure}} cm<br>
+    Obwód bioder: {{person_body.hips_measure}} cm<br>
+    Obwód uda: {{person_body.thigh_measure}} cm<br>
+    Obwód ramienia: {{person_body.upper_arm_measure}} cm<br>
+    Typ budowy ciała: {{person_body.get_body_type_display}}<br>
+    Cel: {{person_body.get_person_goal_display}}<br>
+    Aktywność: {{person_body.get_physical_activity_display}}<br>
+    Zapotrzebowanie kaloryczne: {{person_calories}} kcal<br><br>
+
+    <ul>Dziennie zapotrzebowanie:
+        <li>Białko: {{daily_pfc.0}}g </li>
+        <li>Tłuszcz: {{daily_pfc.1}}g </li>
+        <li>Węglowodany: {{daily_pfc.2}}g </li>
+    </ul>
+
+    </div>
+
+
+{% endblock content %}
+

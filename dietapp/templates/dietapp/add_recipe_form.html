@@ -1,0 +1,21 @@
+{% extends 'dietapp/home.html' %}
+{% load static %}
+
+
+
+{% block content %}
+
+    <form method="post" enctype="multipart/form-data" >
+        {% csrf_token %}
+        <br>
+        <p>Nazwa posiłku: {{form.meal_name}}</p>
+        <p>Przepis: {{form.meal_recipe}}</p>
+        <p>Czas przygotowania: {{form.meal_preparation_time}}</p>
+        <p>Zdjęcie: {{form.file}}</p>
+        <table>
+            Składniki: {{form.meal_ingredients}}</table>
+
+        <input class="btn btn-outline-success" type="submit" value="Dodaj"><t> </t><a href="home" class="btn btn-outline-success">Powrót</a>
+    </form>
+
+{% endblock content %}

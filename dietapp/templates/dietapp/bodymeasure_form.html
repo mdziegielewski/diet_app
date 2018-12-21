@@ -1,0 +1,23 @@
+{% extends 'dietapp/home.html' %}
+
+
+{% block header %}
+
+<nav class="navbar navbar-light bg-light justify-content-between">
+    <a class="btn btn-outline-success my-2 my-sm-0" href="/logout">Logout</a>
+    <a class="btn btn-outline-success" href="/home">Powrót na główną</a>
+</nav>
+{% endblock %}
+
+{% block content %}
+
+
+    <br><form method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" class="btn btn-outline-success" value="Zapisz">
+    </form>
+
+
+
+{% endblock content %}

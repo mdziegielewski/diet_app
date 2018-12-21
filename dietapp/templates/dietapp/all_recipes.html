@@ -1,0 +1,79 @@
+{% extends 'dietapp/home.html' %}
+{% load mathfilters %}
+
+
+
+
+{% block header %}
+
+    <nav class="navbar navbar-light bg-light justify-content-between">
+        <a class="btn btn-outline-success my-2 my-sm-0" href="logout">Logout</a>
+        <p><a class="btn btn-outline-success" href="home">Powrót na główną</a></p>
+    </nav>
+{% endblock %}
+
+
+{% block content %}
+
+<div class="recipes">
+<table>
+    <tr>
+        <thead>
+            <th scope="col" >Nazwa</th>
+            <th scope="col">Przepis</th>
+            <th scope="col">Czas</th>
+            <th scope="col">Składniki</th>
+            <th scope="col">Przykład podania</th>
+        </thead>
+    </tr>
+    <tbody>
+    {% for meal in meal_recipe %}
+
+
+    <tr>
+        <td width="10%"><a id="{{meal.meal_name}}">{{meal.meal_name}}</a></td>
+        <td width="50%">{{meal.meal_recipe}}</a></td>
+        <td width="5%">{{meal.meal_preparation_time}} min</a></td>
+
+        <td width="15%">{% for i in meal.meal_ingredients.all %}
+
+                    {% if i.nutrients_group == 1 %}
+                        Ilość {{i.nutrients_name}}: 65g<br>
+                    {% endif %}
+
+                    {% if i.nutrients_group == 2 %}
+                        Ilość {{i.nutrients_name}}: {{get_daily_pfc.0|intdiv:5|mul:100|div:i.protein|floatformat:"0" }}g<br>
+                    {% endif %}
+
+                    {% if i.nutrients_group == 3 %}
+                        Ilość {{i.nutrients_name}}: {{get_daily_pfc.0|intdiv:5|mul:100|div:i.protein|floatformat:"0" }}g<br>
+                    {% endif %}
+
+                    {% if i.nutrients_group == 4 %}
+                        Ilość {{i.nutrients_name}}: {{get_daily_pfc.2|intdiv:5|mul:100|div:i.carbohydrates|floatformat:"0" }}g<br>
+                    {% endif %}
+
+                    {% if i.nutrients_group == 5 %}
+                        Ilość {{i.nutrients_name}}: {{get_daily_pfc.0|intdiv:5|mul:100|div:i.protein|floatformat:"0" }}g<br>
+                    {% endif %}
+
+                    {% if i.nutrients_group == 6 %}
+                        Ilość {{i.nutrients_name}}: {{get_daily_pfc.1|intdiv:5|mul:100|div:i.fats|floatformat:"0"}}g<br>
+                    {% endif %}
+
+        {% endfor %}</td>
+        <td width="10%"><img height="280" width="200" src="../media/{{meal.file}}"><br><br></td>
+
+    </tr>
+
+
+    {% endfor %}
+    </tbody>
+
+</table>
+
+
+
+
+</div>
+{% endblock content %}

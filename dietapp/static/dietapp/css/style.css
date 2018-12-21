@@ -1,0 +1,63 @@
+body{
+    background-color: #212121;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+
+}
+@front-face{
+    font-family: 'Trebuchet MS';
+    color: white;
+}
+
+
+table img {
+    height: 20vh;
+}
+
+
+.table tbody tr td {
+    transition: background-color 1s ease-out;
+}
+
+
+.table tbody tr:hover>td {
+    border: solid 1px red;
+    background-color: black;
+
+}
+
+.login{
+    text-align: center;
+    color: green;
+}
+
+
+.login_h{
+
+    position: absolute;
+    top: 100px;
+    left: 60px;
+
+}
+
+.person_details{
+    color: white;
+    font-size: 20px;
+}
+
+.recipes{
+    color: white;
+    font-size: 15px;
+}
+
+#id_meal_ingredients li {
+    color:red;
+    width:20%; float: left;display: inline;
+}
+
+.grid-container{
+    display: grid;
+    grid-template-columns: auto 150px auto auto;
+    grid-gap: 10px;
+    padding: 10px;
+}

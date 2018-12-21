@@ -1,0 +1,77 @@
+{% extends 'dietapp/home.html' %}
+{% load mathfilters %}
+
+
+{% block content %}
+
+    <form method="post">
+        <button type="submit" class="btn btn-outline-success">Wybierz nowe posiłki</button><a href="home" class="btn btn-outline-success">Powrót</a>
+    {% csrf_token %}
+    </form>
+
+
+
+
+    <table class="table table-bordered table-dark">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Posiłek 1</th>
+              <th scope="col">Posiłek 2</th>
+              <th scope="col">Posiłek 3</th>
+              <th scope="col">Posiłek 4</th>
+              <th scope="col">Posiłek 5</th>
+
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <th scope="row">Poniedziałek</th>
+                {% for meal in week_meals.0 %}
+                    <td><a href="all_recipes#{{meal}}">{{meal}}</a></td>
+                {% endfor %}
+            </tr>
+            <tr>
+              <th scope="row">Wtorek</th>
+                {% for meal in week_meals.1 %}
+                    <td><a href="all_recipes#{{meal}}">{{meal}}</a></td>
+                {% endfor %}
+            </tr>
+            <tr>
+              <th scope="row">Środa</th>
+                {% for meal in week_meals.2 %}
+                    <td><a href="all_recipes#{{meal}}">{{meal}}</a></td>
+                {% endfor %}
+            </tr>
+            <tr>
+              <th scope="row">Czwartek</th>
+                {% for meal in week_meals.3 %}
+                    <td><a href="all_recipes#{{meal}}">{{meal}}</a></td>
+                {% endfor %}
+            </tr>
+            <tr>
+              <th scope="row">Piątek</th>
+                {% for meal in week_meals.4 %}
+                    <td><a href="all_recipes#{{meal}}">{{meal}}</a></td>
+                {% endfor %}
+            </tr>
+            <tr>
+              <th scope="row">Sobota</th>
+                {% for meal in week_meals.5 %}
+                    <td><a href="all_recipes#{{meal}}">{{meal}}</a></td>
+                {% endfor %}
+            </tr>
+            <tr>
+              <th scope="row">Niedziela</th>
+                {% for meal in week_meals.6 %}
+                    <td><a href="all_recipes#{{meal}}">{{meal}}</a></td>
+                {% endfor %}
+            </tr>
+
+          </tbody>
+    </table>
+
+
+
+{% endblock content %}
